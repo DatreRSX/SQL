@@ -37,6 +37,7 @@ DEPT_NO NUMBER(2)
 /*constraint*/
 
 );
+DROP TABLE DEPART;
 
 /*
 
