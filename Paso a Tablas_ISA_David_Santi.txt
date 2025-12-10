@@ -1,0 +1,56 @@
+Caso A
+Coches(Descuentos,Unidades,KM,Año de fabricación)
+
+
+Caso B
+
+
+
+
+
+Caso C
+Coches_nuevos(Descuentos,Unidades)
+Coches_Usados(KM,Año de fabricación)
+
+
+
+Caso A
+Personas(Trabajadores,Descuentos,Unidades,*Nº Matricula,Centro Educativo,Fecha)
+
+
+
+
+
+Caso B
+
+
+
+
+
+
+Caso C
+Personas(Trabajadores(Descuentos,Unidades)
+
+Estudiantes(*Nº Matricula,Centro Educativo)
+
+Parados(Fecha)
+
+
+
+
+Caso A
+Futbolistas(*DNI,numero_Camiseta)
+
+
+
+
+
+Caso B
+
+
+
+
+
+
+Caso C
+Futbolistas(Portero, Defensa, Medio, Delantero)

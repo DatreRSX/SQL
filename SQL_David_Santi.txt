@@ -1,0 +1,48 @@
+
+CREATE TABLE SUCURSAL (
+    Codigo_sucursal   INT NOT NULL PRIMARY KEY,
+    Nombre            VARCHAR(20) NOT NULL,
+    Direccion         VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE CLIENTE (
+    NIF          CHAR(9) NOT NULL PRIMARY KEY,
+    Nombre       VARCHAR(20) NOT NULL,
+    Direccion    VARCHAR(80),
+    
+);
+
+CREATE TABLE CUENTA (
+    Codigo_Cuenta   INT NOT NULL PRIMARY KEY,
+    Saldo           DECIMAL(12,2) DEFAULT 0 CHECK (Saldo >= 0),
+    Fecha_Alta      DATE DEFAULT CURRENT_DATE,
+    Codigo_sucursal INT NOT NULL,
+    FOREIGN KEY (Codigo_sucursal) REFERENCES SUCURSAL(Codigo_sucursal)
+);
+
+CREATE TABLE POSEE (
+    Codigo_Cuenta INT,
+    NIF           CHAR(9),
+    Privilegio    VARCHAR(50) DEFAULT 'Titular',
+    PRIMARY KEY (Codigo_Cuenta, NIF),
+    FOREIGN KEY (Codigo_Cuenta) REFERENCES CUENTA(Codigo_Cuenta),
+    FOREIGN KEY (NIF) REFERENCES CLIENTE(NIF),
+);
+
+CREATE TABLE PRESTAMO (
+    ID_Prestamo      INT NOT NULL PRIMARY KEY,
+    Importe          DECIMAL(12,2) NOT NULL CHECK (Importe > 0),
+    Fecha_Concesion  DATE DEFAULT CURRENT_DATE,
+    NIF              CHAR(9) NOT NULL,
+    FOREIGN KEY (NIF) REFERENCES CLIENTE(NIF)
+);
+
+CREATE TABLE DOMICILIACION (
+    ID_Domiciliacion INT NOT NULL PRIMARY KEY,
+    Estado           VARCHAR(50) DEFAULT 'Pendiente',
+    Descripcion      VARCHAR(200),
+    Codigo_Cuenta    INT NOT NULL,
+    FOREIGN KEY (Codigo_Cuenta) REFERENCES CUENTA(Codigo_Cuenta),
+  
+);
+
