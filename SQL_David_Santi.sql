@@ -8,7 +8,7 @@ CREATE TABLE SUCURSAL (
 CREATE TABLE CLIENTE (
     NIF          CHAR(9) NOT NULL PRIMARY KEY,
     Nombre       VARCHAR(20) NOT NULL,
-    Direccion    VARCHAR(80),
+    Direccion    VARCHAR(80) 
     
 );
 
